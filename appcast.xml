@@ -2,14 +2,28 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>BitoNue</title>
+
+        <item>
+            <title>1.1.1</title>
+            <pubDate>Wed, 19 Jul 2023 18:52:29 +0800</pubDate>
+            <sparkle:version>A1NU1</sparkle:version>
+            <description sparkle:format="plain-text">抓掉了一些小蟲
+            </description>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
+            <enclosure 
+                url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.1.zip" type="application/octet-stream"
+                sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA==" length="2120871"
+                />
+        </item>
+
         <item>
             <title>1.1.0</title>
             <pubDate>Wed, 19 Jul 2023 18:52:29 +0800</pubDate>
             <sparkle:version>A1NU0</sparkle:version>
-            <description sparkle:format="plain-text">
-- 支援新版登入
-- 有自動更新了！
-- 更好看的深色介面
+            <description sparkle:format="plain-text">1. 支援新版登入
+2. 有自動更新了！
+3. 更好看的深色介面
             </description>
             <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
@@ -17,5 +31,6 @@
                 url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.0.zip" type="application/octet-stream"
                 sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA==" length="2120871"            />
         </item>
+
     </channel>
 </rss>
