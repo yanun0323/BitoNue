@@ -1,25 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>BitoNue</title>
-        <description>Most recent changes with links to updates.</description>
-        <language>tw</language>
         <item>
-            <title>Version 1.0.8</title>
-            <sparkle:releaseNotesLink>
-                https://github.com/yanun0323/BitoNue/blob/main/release-note.html
-            </sparkle:releaseNotesLink>
-            <pubDate>Wed, 10 Apr 2019 19:58:11 +0000</pubDate>
-            <enclosure
-                url="https://github.com/yanun0323/BitoNue/blob/main/bitoNue.zip"
-                sparkle:shortVersionString="1.0.8"
-                sparkle:version="2023.07.19"
-                length="6605799"
-                type="application/octet-stream"
-                sparkle:edSignature="MEYCIQCQaUqxcrhhEABlWxk+1At5QSwty+Li8d6Sr3q6jJF1JgIhAOWGpIkYLwXC
-                RFfaA8uz34Dy7CXCczpmSyCOQ5+rfOFL"
-            />
-            <sparkle:minimumSystemVersion>10.11</sparkle:minimumSystemVersion>
+            <title>1.0.6</title>
+            <pubDate>Wed, 19 Jul 2023 18:52:29 +0800</pubDate>
+            <sparkle:version>Y1NUE</sparkle:version>
+            <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
+            <enclosure url="BitoNue.zip" length="1166300" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
