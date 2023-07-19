@@ -40,7 +40,7 @@ struct ContentView: View {
                 .monospacedDigit()
             
             #if DEBUG
-//            Spacer()
+            Spacer()
 //            Button(width: 30, height: .buttonHeight) {
 //                container.interactor.system.updateLoginStatus(.logout)
 //            } content: {
@@ -55,16 +55,21 @@ struct ContentView: View {
 //                    .foregroundColor(.blue)
 //            }
 //            .debug()
+            
+            Button(width: .buttonHeight, height: .buttonHeight, color: .section, radius: .buttonRadius) {
+                container.interactor.perference.setCheckUpdateAt(Date.now.addDay(-2))
+            } content: {
+                Image(systemName: "trash.fill")
+            }
             #endif
             Spacer()
             
             Button(width: 100, height: .buttonHeight, color: .section, radius: .buttonRadius) {
-                container.interactor.updater.checkForUpdates()
+                container.interactor.updater.forceCheckForUpdates()
             } content: {
                 Text("檢查更新")
                     .foregroundColor(.gray)
             }
-
             
             Spacer()
             

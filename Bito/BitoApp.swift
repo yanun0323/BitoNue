@@ -11,11 +11,11 @@ struct BitoApp: App {
         Settings {
             EmptyView()
         }
-        .commands {
-            CommandGroup(after: .appInfo) {
-                UpdateView(updater: delegate.container.interactor.updater.getUpdater())
-            }
-        }
+//        .commands {
+//            CommandGroup(after: .appInfo) {
+//                UpdateView(updater: delegate.container.interactor.updater.getUpdater())
+//            }
+//        }
     }
 }
 
@@ -67,6 +67,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @objc public func togglePopover() {
         if let button = statusItem?.button {
             self.popOver.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.maxY)
+            
+            if Date.now > container.interactor.perference.getCheckUpdateAt().addDay(1){
+                container.interactor.perference.setCheckUpdateAt(.now)
+                container.interactor.updater.checkForUpdates()
+            }
+            
             if self.container.interactor.web.isTokenExpired().0 { return }
             System.async {
                 _ = self.container.interactor.web.fetchListWfh()

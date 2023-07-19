@@ -3,18 +3,19 @@
     <channel>
         <title>BitoNue</title>
         <item>
-            <title>1.0.8 穩定版本發佈</title>
+            <title>1.1.0</title>
             <pubDate>Wed, 19 Jul 2023 18:52:29 +0800</pubDate>
-            <sparkle:version>A0NU8</sparkle:version>
-            <sparkle:releaseNotesLink>
-                https://github.com/yanun0323/BitoNue/raw/main/release_note_1.0.8.html
-            </sparkle:releaseNotesLink>
-            <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
+            <sparkle:version>A1NU0</sparkle:version>
+            <description sparkle:format="plain-text">
+                - 支援新版登入
+                - 有自動更新了！
+                - 更好看的深色介面
+            </description>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
             <enclosure 
-                url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.0.8.zip" type="application/octet-stream"
-                sparkle:edSignature="DVa0kCQ1TzEW8YIN4wapYXO3uDSPivHfuRFTA9L/uVJqWwzp4JVpCAPgzcmPIQ8yilYxg60o+C1FOoUHpawADA==" length="2123891"
-            />
+                url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.0.zip" type="application/octet-stream"
+                sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA==" length="2120871"            />
         </item>
     </channel>
 </rss>

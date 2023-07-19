@@ -2,9 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUAutomaticallyUpdate</key>
+	<false/>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
 	<key>SUFeedURL</key>
 	<string>https://github.com/yanun0323/BitoNue/raw/main/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>/d7mdV3LM4XbvBZ6VuQkR7yMB6Xeod9QehUzsgjhjlg=</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>5</integer>
 </dict>
 </plist>

@@ -36,23 +36,38 @@ extension PerferenceDao where Self: PerferenceRepository {
     func setColorScheme(_ v: ColorScheme) {
         UserDefaults.colorScheme = v.int
     }
+    
+    func getCheckUpdateAt() -> Date? {
+        return UserDefaults.checkUpdateAt
+    }
+    
+    func setCheckUpdateAt(_ v: Date) {
+        UserDefaults.checkUpdateAt = v
+    }
 }
 
 extension UserDefaults {
-    @UserDefaultState(key: "CompanyID")
+    static var application = UserDefaults.init(suiteName: "bitoNue.yanunyang.com")!
+}
+
+extension UserDefaults {
+    @UserDefaultState(key: "CompanyID", defaultValue: .bitoCompanyID, .application)
     static var companyID: String?
     
-    @UserDefaultState(key: "userID")
+    @UserDefaultState(key: "userID", .application)
     static var userID: String?
     
-    @UserDefaultState(key: "password")
+    @UserDefaultState(key: "password", .application)
     static var password: String?
     
-    @UserDefaultState(key: "loginToken")
+    @UserDefaultState(key: "loginToken", .application)
     static var loginToken: String?
     
-    @UserDefaultState(key: "colorScheme")
+    @UserDefaultState(key: "colorScheme", .application)
     static var colorScheme: Int?
+    
+    @UserDefaultState(key: "checkUpdateAt", defaultValue: Date(0), .application)
+    static var checkUpdateAt: Date?
 }
 
 extension ColorScheme {

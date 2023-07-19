@@ -44,4 +44,12 @@ extension PerferenceInteractor {
     func setColorScheme(_ v: ColorScheme) {
         repo.setColorScheme(v)
     }
+    
+    func getCheckUpdateAt() -> Date {
+        repo.getCheckUpdateAt() ?? Date(0)
+    }
+    
+    func setCheckUpdateAt(_ v: Date) {
+        repo.setCheckUpdateAt(v)
+    }
 }
