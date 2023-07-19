@@ -11,7 +11,7 @@
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 10 Apr 2019 19:58:11 +0000</pubDate>
             <enclosure
-                url="https://xxx.com/bitoNue.zip"
+                url="https://github.com/yanun0323/BitoNue/blob/main/bitoNue.zip"
                 sparkle:shortVersionString="1.0.8"
                 sparkle:version="2023.07.19"
                 length="6605799"

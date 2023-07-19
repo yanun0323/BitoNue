@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SUFeedURL</key>
-	<string></string>
+	<string>https://github.com/yanun0323/BitoNue/blob/main/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>/d7mdV3LM4XbvBZ6VuQkR7yMB6Xeod9QehUzsgjhjlg=</string>
 </dict>
