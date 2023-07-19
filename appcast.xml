@@ -7,7 +7,7 @@
         <item>
             <title>Version 1.0.8</title>
             <sparkle:releaseNotesLink>
-                http://xxx.com/release-note.html
+                https://github.com/yanun0323/BitoNue/blob/main/release-note.html
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 10 Apr 2019 19:58:11 +0000</pubDate>
             <enclosure
