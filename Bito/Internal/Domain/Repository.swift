@@ -13,4 +13,6 @@ protocol PerferenceRepository {
     func setColorScheme(_:ColorScheme)
     func getCheckUpdateAt() -> Date?
     func setCheckUpdateAt(_:Date)
+    func getAutoLogin() -> Bool
+    func setAutoLogin(_:Bool)
 }

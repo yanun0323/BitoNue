@@ -14,6 +14,7 @@ struct LoginView: View {
     @State private var alert = ""
     @State private var blockLogin = false
     @State private var csrfToken = ""
+    @State private var autoLogin = false
     
     private let inputFieldWidth: CGFloat = 200
     
@@ -21,13 +22,19 @@ struct LoginView: View {
         VStack {
             loginView()
                 .padding(.bottom)
+                .padding(.top, CGSize.tabSize.height)
         }
         .onAppear{
             focus = .userID
             companyID = container.interactor.perference.getCompanyID()
             userID = container.interactor.perference.getUserID()
             password = container.interactor.perference.getPassword()
+            autoLogin = container.interactor.perference.getAutoLogin()
+            if autoLogin {
+                login()
+            }
         }
+        .onChange(of: autoLogin) { container.interactor.perference.setAutoLogin($0) }
     }
     
     @ViewBuilder
@@ -47,19 +54,20 @@ struct LoginView: View {
                     .hotkey(key: .kVK_Return) {
                         login()
                     }
+                Toggle("自動登入", isOn: $autoLogin)
                 
-                #if DEBUG
-                TextField("", text: $alert)
-                    .foregroundColor(.red)
-                    .font(.caption)
-                    .frame(height: 12)
-                #else
+//                #if DEBUG
+//                TextField("", text: $alert)
+//                    .foregroundColor(.red)
+//                    .font(.caption)
+//                    .frame(height: 12)
+//                #else
                 Text(alert)
                     .foregroundColor(.red)
                     .font(.caption)
                     .frame(height: 12)
                     .truncationMode(.middle)
-                #endif
+//                #endif
                 
                 Button(width: 100, height: .submitHeight, colors: Color.mainColors, radius: .buttonRadius) {
                     login()
@@ -163,6 +171,7 @@ extension LoginView {
     }
 }
 
+#if DEBUG
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
@@ -170,3 +179,4 @@ struct LoginView_Previews: PreviewProvider {
             .debug(cover: .containerSize)
     }
 }
+#endif

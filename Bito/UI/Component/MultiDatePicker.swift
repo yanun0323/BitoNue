@@ -1,14 +1,6 @@
 import SwiftUI
 import Ditto
 
-extension Date {
-    var year: Int { Int(self.yearString)! }
-    var yearString: String { self.string("yyyy") }
-    var month: Int { Int(self.monthString)! }
-    var monthString: String { self.string("M") }
-    var pureDate: Date { Date(from: self.string(.Numeric), .Numeric)! }
-}
-
 typealias Weekday = Int
 extension Weekday {
     static let list = [String](["日","一","二","三","四","五","六"])
@@ -187,7 +179,6 @@ struct MultiDatePicker: View {
         }
         .buttonStyle(.plain)
         .disabled(invalid)
-//        .opacity(invalid ? 0.5 : 1)
     }
 }
 
@@ -244,6 +235,7 @@ extension MultiDatePicker {
     }
 }
 
+#if DEBUG
 struct MultiDatePicker_Previews: PreviewProvider {
     static var previews: some View {
         HStack(spacing: 20) {
@@ -258,3 +250,4 @@ struct MultiDatePicker_Previews: PreviewProvider {
         .now.pureDate.addDay(2): .rejected
     ]
 }
+#endif

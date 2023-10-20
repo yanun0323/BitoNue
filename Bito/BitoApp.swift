@@ -11,11 +11,6 @@ struct BitoApp: App {
         Settings {
             EmptyView()
         }
-//        .commands {
-//            CommandGroup(after: .appInfo) {
-//                UpdateView(updater: delegate.container.interactor.updater.getUpdater())
-//            }
-//        }
     }
 }
 
@@ -68,13 +63,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         if let button = statusItem?.button {
             self.popOver.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.maxY)
             
-            if Date.now > container.interactor.perference.getCheckUpdateAt().addDay(1){
-                container.interactor.perference.setCheckUpdateAt(.now)
-                container.interactor.updater.checkForUpdates()
-            }
-            
-            if self.container.interactor.web.isTokenExpired().0 { return }
             System.async {
+                if Date.now > self.container.interactor.perference.getCheckUpdateAt().addDay(1){
+                    self.container.interactor.perference.setCheckUpdateAt(.now)
+                    self.container.interactor.updater.checkForUpdates()
+                }
+            } main: {}
+
+            
+            System.async {
+                self.container.interactor.system.pushLoading(true)
+                defer { self.container.interactor.system.pushLoading(false) }
+                if self.container.interactor.web.isTokenExpired().0 { return }
                 _ = self.container.interactor.web.fetchListWfh()
             } main: {}
         }

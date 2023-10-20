@@ -6,7 +6,7 @@ protocol WebService {
     func queryWfhInfo(_:GetWfhInfoRequest) -> (GetWfhInfoReply?, WebError?)
     func submitWfh(_:SubmitWfhRequest) -> (Bool, WebError?)
     func deleteWfh(_:DeleteWfhRequest) -> (Bool, WebError?)
-    func fetchListWfh() -> (ListWfhReply?, WebError?)
+    func fetchListWfh()
     func listWfh(_:ListWfhRequest) -> (ListWfhReply?, WebError?)
     func isTokenExpired(_:Bool) -> (Bool, WebError?)
 }

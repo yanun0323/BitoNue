@@ -7,17 +7,28 @@ struct ContentView: View {
     @State var submitted: (SubmitLoginReply, GetWfhInfoReply)?
     @State var colorScheme: ColorScheme
     @State private var set = Set<Date>([])
+    @State private var isLoading = false
     
     var body: some View {
-        VStack(spacing: 0) {
-            header()
-            if submitted?.0.success ?? false && submitted!.1.wfhInfo() != nil {
-                WFHView(submitted: submitted!.0, info: submitted!.1.wfhInfo()!)
-            } else {
-                LoginView()
+        ZStack {
+            VStack(spacing: 0) {
+                header()
+                if isLogin() {
+                    LoginedView(submitted: submitted!.0, info: submitted!.1.wfhInfo()!)
+                } else {
+                    LoginView()
+                }
+            }
+            .opacity(isLoading ? 0.1 : 1)
+            .disabled(isLoading)
+            
+            if isLoading {
+                Loading(color: .primary)
+                    .layoutPriority(1)
             }
         }
         .onReceive(container.appstate.loginStatus) { submitted = $0.getSubmitted() }
+        .onReceive(container.appstate.loading) { isLoading = $0 }
         .debug(cover: .menubarSize)
         .frame(size: .menubarSize)
         .background()
@@ -39,30 +50,19 @@ struct ContentView: View {
                 .frame(height: .buttonHeight, alignment: .bottom)
                 .monospacedDigit()
             
-            #if DEBUG
             Spacer()
-//            Button(width: 30, height: .buttonHeight) {
-//                container.interactor.system.updateLoginStatus(.logout)
-//            } content: {
-//                Text("登出")
-//                    .foregroundColor(.blue)
-//            }
-//            .debug()
-//            Button(width: 80, height: .buttonHeight) {
-//                HTTPCookieStorage.shared.removeCookies(since: Date(0))
-//            } content: {
-//                Text("清除Cookie")
-//                    .foregroundColor(.blue)
-//            }
-//            .debug()
             
-            Button(width: .buttonHeight, height: .buttonHeight, color: .section, radius: .buttonRadius) {
-                container.interactor.perference.setCheckUpdateAt(Date.now.addDay(-2))
-            } content: {
-                Image(systemName: "trash.fill")
+            if isLogin() {
+                Button(width: 50, height: .buttonHeight, colors: Color.mainColors, radius: .buttonRadius) {
+                    container.interactor.perference.setAutoLogin(false)
+                    container.interactor.system.updateLoginStatus(.logout)
+                } content: {
+                    Text("登出")
+                        .foregroundColor(.white)
+                }
+            } else {
+                Block(width: 50, height: .buttonHeight)
             }
-            #endif
-            Spacer()
             
             Button(width: 100, height: .buttonHeight, color: .section, radius: .buttonRadius) {
                 container.interactor.updater.forceCheckForUpdates()
@@ -70,8 +70,6 @@ struct ContentView: View {
                 Text("檢查更新")
                     .foregroundColor(.gray)
             }
-            
-            Spacer()
             
             Button(width: .buttonHeight, height: .buttonHeight, color: .section, radius: .buttonRadius) {
                 colorScheme = colorScheme != .light ? .light : .dark
@@ -95,8 +93,17 @@ struct ContentView: View {
     }
 }
 
+extension ContentView {
+    func isLogin() -> Bool {
+        return submitted?.0.success ?? false && submitted!.1.wfhInfo() != nil
+    }
+}
+
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(colorScheme: .light)
+            .preferredColorScheme(.dark)
     }
 }
+#endif

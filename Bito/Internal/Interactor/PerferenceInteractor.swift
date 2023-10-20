@@ -29,6 +29,10 @@ extension PerferenceInteractor {
         return repo.getColorScheme() ?? .light
     }
     
+    func getAutoLogin() -> Bool {
+        return repo.getAutoLogin()
+    }
+    
     func setCompanyID(_ v: String) {
         repo.setCompanyID(v)
     }
@@ -51,5 +55,9 @@ extension PerferenceInteractor {
     
     func setCheckUpdateAt(_ v: Date) {
         repo.setCheckUpdateAt(v)
+    }
+    
+    func setAutoLogin(_ v: Bool) {
+        repo.setAutoLogin(v)
     }
 }

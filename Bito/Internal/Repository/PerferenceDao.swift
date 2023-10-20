@@ -44,6 +44,14 @@ extension PerferenceDao where Self: PerferenceRepository {
     func setCheckUpdateAt(_ v: Date) {
         UserDefaults.checkUpdateAt = v
     }
+    
+    func getAutoLogin() -> Bool {
+        return UserDefaults.autoLogin ?? false
+    }
+    
+    func setAutoLogin(_ v: Bool) {
+        UserDefaults.autoLogin = v
+    }
 }
 
 extension UserDefaults {
@@ -68,6 +76,9 @@ extension UserDefaults {
     
     @UserDefaultState(key: "checkUpdateAt", defaultValue: Date(0), .application)
     static var checkUpdateAt: Date?
+    
+    @UserDefaultState(key: "autoLogin", .application)
+    static var autoLogin: Bool?
 }
 
 extension ColorScheme {

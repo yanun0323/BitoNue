@@ -29,4 +29,17 @@ extension SystemInteractor {
             appstate.pendingSubmitChange.send(change)
         }
     }
+    
+    func pushLeaveSelectedDate(_ start: Date?, _ end: Date?) {
+        System.async {
+            appstate.leaveSelectedDateStart.send(start)
+            appstate.leaveSelectedDateEnd.send(end)
+        }
+    }
+    
+    func pushLoading(_ isLoading: Bool) {
+        System.async {
+            appstate.loading.send(isLoading)
+        }
+    }
 }

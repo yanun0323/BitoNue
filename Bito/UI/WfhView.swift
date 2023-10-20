@@ -1,7 +1,7 @@
 import SwiftUI
 import Ditto
 
-struct WFHView: View {
+struct WfhView: View {
     @Environment(\.injected) private var container
     @State var submitted: SubmitLoginReply
     @State var info: WfhInfo
@@ -21,29 +21,16 @@ struct WFHView: View {
     
     @ViewBuilder
     private func build() -> some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 12) {
             datePikcerBlock()
                 .frame(size: .containerSize.x(w: 1, h: 0.45))
             
             buttonSet()
             
             historyList()
-
-            logoutButton()
         }
         .padding(.vertical, 5)
         .frame(size: .containerSize)
-    }
-    
-    @ViewBuilder
-    private func logoutButton() -> some View {
-        Button(width: 100, height: .buttonHeight, color: .section, radius: .buttonRadius) {
-            HTTPCookieStorage.shared.removeCookies(since: Date(0))
-            container.interactor.system.updateLoginStatus(.logout)
-        } content: {
-            Text("登出")
-                .foregroundColor(.gray)
-        }
     }
     
     @ViewBuilder
@@ -150,7 +137,7 @@ struct WFHView: View {
     }
 }
 
-extension WFHView {
+extension WfhView {
     
     private func submitWfh() {
         wfhList = []
@@ -196,10 +183,12 @@ extension WFHView {
     
 }
 
+#if DEBUG
 struct WFHView_Previews: PreviewProvider {
     static var previews: some View {
-        WFHView(submitted: SubmitLoginReply(success: true, username: "楊永煜 Yanun Yang", csrfToken: "TokenXXXXXX"), info: WfhInfo(companySN: "", deptSN: "", userSN: ""))
+        WfhView(submitted: .preview, info: .preview)
             .inject(.default)
             .debug(cover: .containerSize)
     }
 }
+#endif

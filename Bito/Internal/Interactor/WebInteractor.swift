@@ -113,13 +113,15 @@ extension WebInteractor: WebService {
         return (reply.code >= 200 && reply.code < 300, nil)
     }
     
-    func fetchListWfh() -> (ListWfhReply?, WebError?) {
-        _ = isTokenExpired()
-        guard let req = Self.cacheListWfhRequest else {
-            print("fetch list wfh error [func=fetchListWfh]")
-            return (nil, .missingCsrfToken("fetchListWfh", "cache not found"))
-        }
-        return listWfh(req)
+    func fetchListWfh() {
+        System.async {
+            _ = isTokenExpired()
+            guard let req = Self.cacheListWfhRequest else {
+                print("fetch list wfh error [func=fetchListWfh]")
+                return
+            }
+            _ = listWfh(req)
+        } main: {}
     }
     
     func listWfh(_ req: ListWfhRequest) -> (ListWfhReply?, WebError?) {
@@ -149,7 +151,9 @@ extension WebInteractor: WebService {
         
         guard let check = check, check.code == 200, code == 200, err == nil else {
             if autoLogout {
-                appstate.loginStatus.send(.logout)
+                System.async {
+                    appstate.loginStatus.send(.logout)
+                }
             }
             return (true, .sendRequest("checkLoginExpired", err?.message ?? "empty check object"))
         }

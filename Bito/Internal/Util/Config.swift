@@ -11,14 +11,19 @@ extension DateFormatLayout {
 
 extension CGSize {
     static let menubarSize = CGSize(width: 400, height: 600)
-    static let headerSize = CGSize(width: menubarSize.width, height: .buttonHeight+10)
-    static let containerSize = CGSize(width: menubarSize.width, height: menubarSize.height - headerSize.height)
+    static let tabSize = CGSize(width: menubarSize.width, height: .buttonHeight+10)
+    static let headerSize = CGSize(width: menubarSize.width, height: .buttonHeight+20)
+    static let containerSize = CGSize(width: menubarSize.width, height: menubarSize.height - headerSize.height - tabSize.height)
 }
 
 extension CGFloat {
-    static let buttonHeight = CGFloat(22)
+    static let buttonHeight = CGFloat(Int.buttonHeight)
     static let buttonRadius = CGFloat(7)
     static let submitHeight = CGFloat(28)
+}
+
+extension Int {
+    static let buttonHeight = 22
 }
 
 extension Color {

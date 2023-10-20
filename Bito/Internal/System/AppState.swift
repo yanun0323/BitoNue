@@ -7,6 +7,9 @@ struct AppState {
     public var loginStatus = PassthroughSubject<LoginStatus, Never>()
     public var wfhList = PassthroughSubject<[ListWfhReply.List], Never>()
     public var pendingSubmitChange = PassthroughSubject<Int, Never>()
+    public var leaveSelectedDateStart = PassthroughSubject<Date?, Never>()
+    public var leaveSelectedDateEnd = PassthroughSubject<Date?, Never>()
+    public var loading = PassthroughSubject<Bool, Never>()
     
     static var get: AppState {
         return self.default

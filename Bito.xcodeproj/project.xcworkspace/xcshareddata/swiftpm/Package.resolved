@@ -6,7 +6,7 @@
       "location" : "https://github.com/yanun0323/Ditto",
       "state" : {
         "branch" : "master",
-        "revision" : "c8bf6ac7e2ca0c9313d08f495d374a432a4ebc5e"
+        "revision" : "2cac76981ac05e2033aa859ace21c61f0208b006"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/yanun0323/Sworm",
       "state" : {
-        "revision" : "e3db791dffc1f6c8765a2068d3d162929d6473d3",
-        "version" : "0.1.0"
+        "revision" : "f85aa46e4f824248145ecf17833fcb6443150459",
+        "version" : "0.1.4"
       }
     }
   ],
