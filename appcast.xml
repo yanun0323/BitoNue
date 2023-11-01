@@ -5,7 +5,7 @@
 
         <item>
             <title>1.1.1</title>
-            <pubDate>Wed, 11 Nov 2023 20:02:29 +0800</pubDate>
+            <pubDate>Wed, 20 Jul 2023 20:02:29 +0800</pubDate>
             <sparkle:version>A1NU1</sparkle:version>
             <description sparkle:format="plain-text">1. 修正了無法登入問題
 2. 增加自動登入選項
@@ -15,7 +15,8 @@
             <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
             <enclosure 
                 url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.1.zip" type="application/octet-stream"
-                sparkle:edSignature="/1CU0Gd9CjQKTaxWzWV0sk9NWayPgC2mhRk4d+hhFOJ27fshGGU28FDjv39pW4lQUl1EquSkrIuFof/K1P7tAA==" length="1637143"/>
+                sparkle:edSignature="/1CU0Gd9CjQKTaxWzWV0sk9NWayPgC2mhRk4d+hhFOJ27fshGGU28FDjv39pW4lQUl1EquSkrIuFof/K1P7tAA==" length="1637143"
+            />
         </item>
 
         <item>
@@ -30,7 +31,8 @@
             <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
             <enclosure 
                 url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.0.zip" type="application/octet-stream"
-                sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA==" length="2120871"/>
+                sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA==" length="2120871"
+            />
         </item>
 
     </channel>
