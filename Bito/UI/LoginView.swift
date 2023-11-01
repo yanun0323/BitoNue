@@ -15,6 +15,7 @@ struct LoginView: View {
     @State private var blockLogin = false
     @State private var csrfToken = ""
     @State private var autoLogin = false
+    @State private var debugMode: Bool = false
     
     private let inputFieldWidth: CGFloat = 200
     
@@ -36,7 +37,6 @@ struct LoginView: View {
         }
         .onChange(of: autoLogin) { container.interactor.perference.setAutoLogin($0) }
     }
-    
     @ViewBuilder
     private func loginView() -> some View {
         VStack(spacing: 20) {
@@ -56,18 +56,18 @@ struct LoginView: View {
                     }
                 Toggle("自動登入", isOn: $autoLogin)
                 
-//                #if DEBUG
-//                TextField("", text: $alert)
-//                    .foregroundColor(.red)
-//                    .font(.caption)
-//                    .frame(height: 12)
-//                #else
-                Text(alert)
-                    .foregroundColor(.red)
-                    .font(.caption)
-                    .frame(height: 12)
-                    .truncationMode(.middle)
-//                #endif
+                if debugMode {
+                    TextField("debug info", text: $alert)
+                        .foregroundColor(.red)
+                        .font(.caption)
+                        .frame(height: 12)
+                } else {
+                    Text(alert)
+                        .foregroundColor(.red)
+                        .font(.caption)
+                        .frame(height: 12)
+                        .truncationMode(.middle)
+                }
                 
                 Button(width: 100, height: .submitHeight, colors: Color.mainColors, radius: .buttonRadius) {
                     login()
@@ -80,6 +80,7 @@ struct LoginView: View {
             .frame(width: inputFieldWidth)
             .multilineTextAlignment(.trailing)
             Spacer()
+            Toggle("Debug Mode", isOn: $debugMode)
         }
         .disabled(blockLogin)
     }

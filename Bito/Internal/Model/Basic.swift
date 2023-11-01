@@ -18,7 +18,7 @@ extension BasicInfo {
         let email: String
         let timezone: Timezone
         let permission: [String]
-        let noticeCount: Int
+        let noticeCount: Int?
         let subSystemList: [String]
         let homeTmplInfo: HomeTmplInfo
         

@@ -11,9 +11,9 @@ enum TabCategory: String, CaseIterable, Identifiable {
 struct LoginedView: View {
     @State var submitted: SubmitLoginReply
     @State var info: WfhInfo
-    @State private var selected = TabCategory.leave
+    @State private var selected = TabCategory.wfh
     
-    var tabWidth: CGFloat { CGSize.tabSize.width/CGFloat(TabCategory.allCases.count) }
+    var tabWidth: CGFloat { CGSize.tabSize.width/CGFloat(1) }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -29,8 +29,9 @@ struct LoginedView: View {
         ZStack {
             Color.section
             HStack(alignment: .bottom, spacing: 0) {
-                ForEach(TabCategory.allCases, id: \.self) { t in
+//                ForEach(TabCategory.allCases, id: \.self) { t in
                     ZStack {
+                        let t = TabCategory.wfh
                         if selected == t {
                             Path { p in
                                 let root = CGPoint(x: CGFloat(1), y: CGSize.tabSize.height)
@@ -53,7 +54,7 @@ struct LoginedView: View {
                                 .foregroundColor(selected == t ? nil : .gray)
                         }
                     }
-                }
+//                }
             }
         }
     }

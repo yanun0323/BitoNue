@@ -204,6 +204,8 @@ extension WebInteractor {
         request.httpBody = data
     }
     
+    
+    // [getBasicInfo] 請檢查網路連線, decode json data error, err: keyNotFound(CodingKeys(stringValue: "notice_count", intValue: nil), Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: "data", intValue: nil)], debugDescription: "No value associated with key CodingKeys(stringValue: \"notice_count\", intValue: nil) (\"notice_count\").", underlyingError: nil))
     private func getBasicInfo() -> (BasicInfo?, WebError?) {
         let url = "https://portal-api.nueip.com/system/basic-info"
         let (info, code, err) = Http.sendRequest(.GET, toUrl: url, type: BasicInfo.self){ request in
