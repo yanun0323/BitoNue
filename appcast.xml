@@ -2,38 +2,28 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>BitoNue</title>
-
         <item>
-            <title>1.1.1</title>
-            <pubDate>Wed, 20 Jul 2023 20:02:29 +0800</pubDate>
+            <title>1.1.2</title>
+            <pubDate>Wed, 01 Nov 2023 20:41:45 +0800</pubDate>
             <sparkle:version>A1NU1</sparkle:version>
             <description sparkle:format="plain-text">1. 修正了無法登入問題
 2. 增加自動登入選項
 3. 增加開發模式選項
             </description>
-            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
-            <enclosure 
-                url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.1.zip" type="application/octet-stream"
-                sparkle:edSignature="/1CU0Gd9CjQKTaxWzWV0sk9NWayPgC2mhRk4d+hhFOJ27fshGGU28FDjv39pW4lQUl1EquSkrIuFof/K1P7tAA==" length="1637143"
-            />
+            <enclosure url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.2.zip" length="1637169" type="application/octet-stream" sparkle:edSignature="oWTGurhNZhmjVsXjq+PgVvCKWVdsatd6PolKpx3g4ZaMmwUWx9Pl18ZNJEE0b4l2D0yQVFvpA6O/Ul9brHBFCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/yanun0323/BitoNue/raw/main/BitoNueA1NU1-A1NU0.delta" sparkle:deltaFrom="A1NU0" length="272858" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="PNLGSRFK4nPI6kQ/93w6IKlSFuBKeO71UnRfcFX7WjX0GjiFkfM7F4+0aKwqEwUlB6L+xa4Q6TaQ5UeutdKUBg=="/>
+            </sparkle:deltas>
         </item>
-
         <item>
             <title>1.1.0</title>
-            <pubDate>Wed, 19 Jul 2023 18:52:29 +0800</pubDate>
+            <pubDate>Thu, 20 Jul 2023 03:43:11 +0800</pubDate>
             <sparkle:version>A1NU0</sparkle:version>
-            <description sparkle:format="plain-text">1. 支援新版登入
-2. 有自動更新了！
-3. 更好看的深色介面
-            </description>
             <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.2</sparkle:minimumSystemVersion>
-            <enclosure 
-                url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.0.zip" type="application/octet-stream"
-                sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA==" length="2120871"
-            />
+            <enclosure url="https://github.com/yanun0323/BitoNue/raw/main/BitoNue_1.1.0.zip" length="2120871" type="application/octet-stream" sparkle:edSignature="PAQI2legL/vx1DUxLCx/YqIAy1VfHGG0434mtJPptW4s1e8luQTBiKDIteZTyvlDs4x3tNvsHiGvVhr+WujlBA=="/>
         </item>
-
     </channel>
 </rss>
