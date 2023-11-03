@@ -17,10 +17,10 @@ struct AppState {
 }
 
 enum LoginStatus {
-    case login(_:SubmitLoginReply, _:GetWfhInfoReply)
+    case login(_:SubmitLoginReply, _:UserInfo)
     case logout
     
-    func getSubmitted() -> (SubmitLoginReply, GetWfhInfoReply)? {
+    func getSubmitted() -> (SubmitLoginReply, UserInfo)? {
         switch self {
             case let .login(submit, info):
                 return (submit, info)

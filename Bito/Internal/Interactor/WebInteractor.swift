@@ -62,19 +62,44 @@ extension WebInteractor: WebService {
         return (SubmitLoginReply(success: true, username: info.data.userName, csrfToken: req.csrfToken), nil)
     }
     
-    func queryWfhInfo(_ req: GetWfhInfoRequest) -> (GetWfhInfoReply?, WebError?) {
-        let url = "https://cloud.nueip.com/shared/org3layermenu_ajax"
-        let (reply, code, err) = Http.sendRequest(.POST, toUrl: url, type: GetWfhInfoReply.self) { request in
+    func getUserInfo(_ req: GetUserInfoRequest) -> (UserInfo?, WebError?) {
+        let (reply, code, err) = Http.sendRequest(.GET, toUrl: GetUserInfoRequest.url, type: GetUserInfoReply.self) { request in
             setCookies(&request, domain: .keyDomain)
-            setUrlencodedBody(&request, req.formData())
         }
         
         guard let reply = reply, code == 200, err == nil else {
-            return (nil, .sendRequest("queryWfhInfo", err?.message ?? "empty reply object"))
+            return (nil, .sendRequest("getUserInfo", err?.message ?? "empty reply object"))
         }
         
-        return (reply, nil)
+        let userInfo = reply.userInfo()
+        WebInteractor.cacheListWfhRequest = userInfo.listWfhRequest()
+        
+        return (reply.userInfo(), nil)
     }
+    
+//    func queryWfhInfo(_ req: GetWfhInfoRequest) -> (GetWfhInfoReply?, WebError?) {
+//        let url = "https://cloud.nueip.com/shared/org3layermenu_ajax"
+//        #if DEBUG
+//        let (body, _, _) = Http.sendRequest(.POST, toUrl: url) { request in
+//            setCookies(&request, domain: .keyDomain)
+//            setUrlencodedBody(&request, req.formData())
+//        }
+//        print("--- query wfh info ---")
+//        print(body)
+//        #endif
+//        
+//        
+//        let (reply, code, err) = Http.sendRequest(.POST, toUrl: url, type: GetWfhInfoReply.self) { request in
+//            setCookies(&request, domain: .keyDomain)
+//            setUrlencodedBody(&request, req.formData())
+//        }
+//        
+//        guard let reply = reply, code == 200, err == nil else {
+//            return (nil, .sendRequest("queryWfhInfo", err?.message ?? "empty reply object"))
+//        }
+//        
+//        return (reply, nil)
+//    }
     
     func submitWfh(_ req: SubmitWfhRequest) -> (Bool, WebError?) {
         _ = isTokenExpired()
@@ -126,6 +151,7 @@ extension WebInteractor: WebService {
     
     func listWfh(_ req: ListWfhRequest) -> (ListWfhReply?, WebError?) {
         _ = isTokenExpired()
+        WebInteractor.cacheListWfhRequest = req
         let url = "https://cloud.nueip.com/inout_record/ajax"
         let (reply, code, err) = Http.sendRequest(.POST, toUrl: url, type: ListWfhReply.self) { request in
             setCookies(&request, domain: .keyDomain)
@@ -136,7 +162,6 @@ extension WebInteractor: WebService {
             return (nil, .sendRequest("listWfh", err?.message ?? "empty reply object"))
         }
         
-        Self.cacheListWfhRequest = req
         System.async {
             appstate.wfhList.send(reply.data.list)
         }

@@ -4,7 +4,7 @@ import Ditto
 struct WfhView: View {
     @Environment(\.injected) private var container
     @State var submitted: SubmitLoginReply
-    @State var info: WfhInfo
+    @State var info: UserInfo
     @State private var selected = Set<Date>([])
     @State private var wfhList = [ListWfhReply.List]([])
     @State private var wfhDate = Dictionary<Date, ListWfhReply.SignStatus>()

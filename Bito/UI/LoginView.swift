@@ -154,7 +154,7 @@ extension LoginView {
             return
         }
         
-        let (reply, infoErr) = container.interactor.web.queryWfhInfo(GetWfhInfoRequest())
+        let (reply, infoErr) = container.interactor.web.getUserInfo(GetUserInfoRequest())
         if let infoErr = infoErr {
             alert = infoErr.message
             return

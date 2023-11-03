@@ -10,7 +10,7 @@ enum TabCategory: String, CaseIterable, Identifiable {
 
 struct LoginedView: View {
     @State var submitted: SubmitLoginReply
-    @State var info: WfhInfo
+    @State var info: UserInfo
     @State private var selected = TabCategory.wfh
     
     var tabWidth: CGFloat { CGSize.tabSize.width/CGFloat(1) }

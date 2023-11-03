@@ -3,7 +3,8 @@ import SwiftUI
 protocol WebService {
     func queryLogin(_:GetLoginRequest) -> (GetLoginReply?, WebError?)
     func submitLogin(_:SubmitLoginRequest) -> (SubmitLoginReply?, WebError?)
-    func queryWfhInfo(_:GetWfhInfoRequest) -> (GetWfhInfoReply?, WebError?)
+    func getUserInfo(_:GetUserInfoRequest) -> (UserInfo?, WebError?)
+//    func queryWfhInfo(_:GetWfhInfoRequest) -> (GetWfhInfoReply?, WebError?)
     func submitWfh(_:SubmitWfhRequest) -> (Bool, WebError?)
     func deleteWfh(_:DeleteWfhRequest) -> (Bool, WebError?)
     func fetchListWfh()

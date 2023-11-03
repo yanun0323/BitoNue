@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A81459BE2A65B9A200CB407F /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81459BD2A65B9A200CB407F /* Mock.swift */; };
+		A81F2D352AF382BC0016AC76 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F2D342AF382BC0016AC76 /* UserInfo.swift */; };
 		A84FA84E2A6686A60092AB5E /* Expired.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FA84D2A6686A60092AB5E /* Expired.swift */; };
 		A84FA8832A67A8680092AB5E /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FA8822A67A8680092AB5E /* Basic.swift */; };
 		A84FA8852A67AC130092AB5E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FA8842A67AC130092AB5E /* Token.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		A81459BD2A65B9A200CB407F /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		A81F2D342AF382BC0016AC76 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		A84FA84D2A6686A60092AB5E /* Expired.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expired.swift; sourceTree = "<group>"; };
 		A84FA8822A67A8680092AB5E /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
 		A84FA8842A67AC130092AB5E /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				A8FD3D512A5D5B4300908404 /* Login.swift */,
+				A81F2D342AF382BC0016AC76 /* UserInfo.swift */,
 				A8FD3D532A5D5C3D00908404 /* WFH.swift */,
 				A8D2A9642A71279F0058C4DF /* Leave.swift */,
 				A8D2A9662A7127B60058C4DF /* Work.swift */,
@@ -356,6 +359,7 @@
 				A8D2A96B2A7242330058C4DF /* Date.swift in Sources */,
 				A8FD3D412A5D0CC500908404 /* LoginView.swift in Sources */,
 				A8FD3D542A5D5C3D00908404 /* WFH.swift in Sources */,
+				A81F2D352AF382BC0016AC76 /* UserInfo.swift in Sources */,
 				A8A32D832A67EF7B00090F1C /* UpdaterInteractor.swift in Sources */,
 				A8D2A9632A70DDCB0058C4DF /* Preview.swift in Sources */,
 				A8FD3D622A5D77BB00908404 /* WfhView.swift in Sources */,
@@ -495,11 +499,12 @@
 				CODE_SIGN_ENTITLEMENTS = Bito/Resource/Bito.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = A1NU1;
+				CURRENT_PROJECT_VERSION = A1NU3;
 				DEVELOPMENT_ASSET_PATHS = "\"Bito/Preview Content\"";
 				DEVELOPMENT_TEAM = Y366CJ66L6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bito/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BitoNue;
@@ -509,7 +514,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanunyang.Bito;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -525,11 +530,12 @@
 				CODE_SIGN_ENTITLEMENTS = Bito/Resource/Bito.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = A1NU1;
+				CURRENT_PROJECT_VERSION = A1NU3;
 				DEVELOPMENT_ASSET_PATHS = "\"Bito/Preview Content\"";
 				DEVELOPMENT_TEAM = Y366CJ66L6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bito/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BitoNue;
@@ -539,7 +545,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanunyang.Bito;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

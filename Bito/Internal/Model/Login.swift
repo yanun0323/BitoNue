@@ -1,4 +1,5 @@
 import SwiftUI
+import Ditto
 
 struct GetLoginRequest {}
 
@@ -27,3 +28,4 @@ struct SubmitLoginReply {
         return "已登出"
     }
 }
+

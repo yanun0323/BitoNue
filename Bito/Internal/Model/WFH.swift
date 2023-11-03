@@ -1,82 +1,82 @@
 import SwiftUI
 import Ditto
 
-// MARK: - GetWfhInfoRequest
+// MARK: - [Deprecate] GetWfhInfoRequest
 struct GetWfhInfoRequest {
     func formData() -> Data {
-        "subDept=true".data(using: .utf8)!
+        "subDept=false".data(using: .utf8)!
     }
 }
 
-// MARK: - GetWfhInfoReply
-struct GetWfhInfoReply: Codable {
-    var companyList: Dictionary<String, Company>
-    
-    func wfhInfo() -> WfhInfo? {
-        guard let companySN = companyList.first?.key else { return nil }
-        guard let deptSN = companyList[companySN]?.deptList.first?.key else { return nil }
-        guard let userSN = companyList[companySN]?.deptList[deptSN]?.userList.first?.key else { return nil }
-        return WfhInfo(companySN: companySN, deptSN: deptSN, userSN: userSN)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case companyList = "company_list"
-    }
-}
+// MARK: - [Deprecate] GetWfhInfoReply
+//struct GetWfhInfoReply: Codable {
+//    var companyList: Dictionary<String, Company>
+//    
+//    func wfhInfo() -> WfhInfo? {
+//        guard let companySN = companyList.first?.key else { return nil }
+//        guard let deptSN = companyList[companySN]?.deptList.first?.key else { return nil }
+//        guard let userSN = companyList[companySN]?.deptList[deptSN]?.userList.first?.key else { return nil }
+//        return WfhInfo(companySN: companySN, deptSN: deptSN, userSN: userSN)
+//    }
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case companyList = "company_list"
+//    }
+//}
 
-// MARK: - WfhInfo
-struct WfhInfo {
-    var companySN: String
-    var deptSN: String
-    var userSN: String
-    
-    func submitWfhRequest(_ date: Date) -> SubmitWfhRequest {
-        return SubmitWfhRequest(companySN: companySN, deptSN: deptSN, userSN: userSN, outDate: date)
-    }
-    
-    func listWfhRequest() -> ListWfhRequest {
-        return ListWfhRequest(companySN: companySN, deptSN: deptSN, userSN: userSN)
-    }
-}
+// MARK: - [Deprecate] WfhInfo
+//struct WfhInfo {
+//    var companySN: String
+//    var deptSN: String
+//    var userSN: String
+//    
+//    func submitWfhRequest(_ date: Date) -> SubmitWfhRequest {
+//        return SubmitWfhRequest(companySN: companySN, deptSN: deptSN, userSN: userSN, outDate: date)
+//    }
+//    
+//    func listWfhRequest() -> ListWfhRequest {
+//        return ListWfhRequest(companySN: companySN, deptSN: deptSN, userSN: userSN)
+//    }
+//}
 
-// MARK: - GetWfhInfoReply
-extension GetWfhInfoReply {
-    struct Company: Codable {
-        var sn: String
-        var title: String
-        var deptList: Dictionary<String, Dept>
-        
-        enum CodingKeys: String, CodingKey {
-            case sn = "sn"
-            case title = "title"
-            case deptList = "dept_list"
-        }
-    }
-    
-    struct Dept: Codable {
-        var sn: String
-        var title: String
-        var userList: Dictionary<String, User>
-        
-        enum CodingKeys: String, CodingKey {
-            case sn = "sn"
-            case title = "title"
-            case userList = "user_list"
-        }
-    }
-    
-    struct User: Codable {
-        var sn: String
-        var udSn: String
-        var title: String
-        
-        enum CodingKeys: String, CodingKey {
-            case sn = "sn"
-            case udSn = "ud_sn"
-            case title = "title"
-        }
-    }
-}
+// MARK: - [Deprecate] GetWfhInfoReply
+//extension GetWfhInfoReply {
+//    struct Company: Codable {
+//        var sn: String
+//        var title: String
+//        var deptList: Dictionary<String, Dept>
+//        
+//        enum CodingKeys: String, CodingKey {
+//            case sn = "sn"
+//            case title = "title"
+//            case deptList = "dept_list"
+//        }
+//    }
+//    
+//    struct Dept: Codable {
+//        var sn: String
+//        var title: String
+//        var userList: Dictionary<String, User>
+//        
+//        enum CodingKeys: String, CodingKey {
+//            case sn = "sn"
+//            case title = "title"
+//            case userList = "user_list"
+//        }
+//    }
+//    
+//    struct User: Codable {
+//        var sn: String
+//        var udSn: String
+//        var title: String
+//        
+//        enum CodingKeys: String, CodingKey {
+//            case sn = "sn"
+//            case udSn = "ud_sn"
+//            case title = "title"
+//        }
+//    }
+//}
 
 // MARK: - SubmitWfhRequest
 struct SubmitWfhRequest {

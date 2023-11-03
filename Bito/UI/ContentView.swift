@@ -4,7 +4,7 @@ import Ditto
 struct ContentView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.injected) private var container
-    @State var submitted: (SubmitLoginReply, GetWfhInfoReply)?
+    @State var submitted: (SubmitLoginReply, UserInfo)?
     @State var colorScheme: ColorScheme
     @State private var set = Set<Date>([])
     @State private var isLoading = false
@@ -14,7 +14,7 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 header()
                 if isLogin() {
-                    LoginedView(submitted: submitted!.0, info: submitted!.1.wfhInfo()!)
+                    LoginedView(submitted: submitted!.0, info: submitted!.1)
                 } else {
                     LoginView()
                 }
@@ -95,7 +95,7 @@ struct ContentView: View {
 
 extension ContentView {
     func isLogin() -> Bool {
-        return submitted?.0.success ?? false && submitted!.1.wfhInfo() != nil
+        return submitted?.0.success ?? false 
     }
 }
 

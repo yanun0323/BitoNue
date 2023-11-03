@@ -1,8 +1,8 @@
 import SwiftUI
 
 #if DEBUG
-extension WfhInfo {
-    static let preview = WfhInfo(companySN: "", deptSN: "", userSN: "")
+extension UserInfo {
+    static let preview = UserInfo(companySN: "", deptSN: "", userSN: "")
 }
 
 extension SubmitLoginReply {
